@@ -149,7 +149,7 @@ asyncio.selector_events._SelectorSocketTransport._read_ready = _read_ready
 port = int(os.getenv('PORT', 5687))#5687
 start_server = websockets.serve(ws_handler, '', port, klass=HttpWSSProtocol)
 # logger.info('Listening on port %d', port)
-websockets.enableTrace(True)
+# websockets.enableTrace(True)
 
 
 asyncio.get_event_loop().run_until_complete(start_server)
