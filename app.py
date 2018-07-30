@@ -12,11 +12,11 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
         try:
             #while True:
             request_line, headers = await websockets.http.read_message(self.reader)
-            #print(headers)
+            print(headers)
             method, path, version = request_line[:-2].decode().split(None, 2)
-            #print(self.reader)
+            print(self.reader)
         except Exception as e:
-            #print(e.args)
+            print(e.args)
             self.writer.close()
             self.ws_server.unregister(self)
 
@@ -44,7 +44,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
         response = ''
         try :
             alexaRequest = self.reader._buffer.decode('utf-8')
-            #print("Req-->"+alexaRequest)
+            print("Req-->"+alexaRequest)
             RequestJson = json.loads(alexaRequest)['request']['intent']['slots']
 
             if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values():
@@ -146,7 +146,7 @@ asyncio.selector_events._SelectorSocketTransport._read_ready = _read_ready
 
 port = int(os.getenv('PORT', 5687))#5687
 start_server = websockets.serve(ws_handler, '', port, klass=HttpWSSProtocol)
-# logger.info('Listening on port %d', port)
+ logger.info('Listening on port %d', port)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
