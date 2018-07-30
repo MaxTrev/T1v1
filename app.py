@@ -50,7 +50,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
             if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values():
 
                 print('is a cmd')
-                if 'value' not in RequestJson['Switch_State'].members():
+                if 'value' not in RequestJson['Switch_State'].objects():
                     print('caught by if')
                     value = RequestJson['Numbers']['value']
                     obj = RequestJson['tmp_scale']['value']
