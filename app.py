@@ -1,5 +1,5 @@
 import websockets
-inport logging
+import logging
 import asyncio
 import json
 import time, os
