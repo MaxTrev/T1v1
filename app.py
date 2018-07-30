@@ -51,22 +51,22 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
             if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values():
 
                 print('is a cmd')
-                state = RequestJson['Switch_state']['value']
-                print(RequestJson['Switch_state']['value'])
-                print({"object": "switch", "value": state, "query": "cmd"})
-                jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
-   #             if 'value' not in RequestJson['Switch_State'].keys():
-   #                 print('caught by if')
-   #                 value = RequestJson['Numbers']['value']
-   #                 obj = RequestJson['tmp_scale']['value']
-   #                 print({"object":obj,"value":value,"query":"cmd"})
-   #                 jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
-   #             else:
-   #                 print('caught by else')
-   #                 state = RequestJson['Switch_State']['value']
-   #                 print(RequestJson['Switch_State']['value'])
-   #                 print({"object": "switch", "value": state, "query": "cmd"})
-   #                 jsonRequest = {"object": "switch", "value": state, "query": "cmd"}
+   #             state = RequestJson['Switch_state']['value']
+   #             print(RequestJson['Switch_state']['value'])
+   #             print({"object": "switch", "value": state, "query": "cmd"})
+   #             jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
+                if 'value' not in RequestJson['Switch_state'].keys():
+                    print('caught by if')
+                    value = RequestJson['Numbers']['value']
+                    obj = RequestJson['tmp_scale']['value']
+                    print({"object":obj,"value":value,"query":"cmd"})
+                    jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
+                else:
+                    print('caught by else')
+                    state = RequestJson['Switch_state']['value']
+                    print(RequestJson['Switch_state']['value'])
+                    print({"object": "switch", "value": state, "query": "cmd"})
+                    jsonRequest = {"object": "switch", "value": state, "query": "cmd"}
             else:
                 print('is a query')
                 if 'value' in RequestJson['Sensor_Values'].keys():
