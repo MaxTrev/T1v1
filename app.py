@@ -3,6 +3,7 @@ import asyncio
 import json
 import time, os
 
+websocket.enableTrace(True)
 
 class HttpWSSProtocol(websockets.WebSocketServerProtocol):
     rwebsocket = None
