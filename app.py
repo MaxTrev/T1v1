@@ -49,21 +49,24 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
 
             if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values():
 
-                print('cmd')
+                print('is a cmd')
                 if 'value' not in RequestJson['Switch_State'].keys():
+                    print('caught by if')
                     value = RequestJson['Numbers']['value']
                     obj = RequestJson['tmp_scale']['value']
                     print({"object":obj,"value":value,"query":"cmd"})
                     jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
                 else:
+                    print('caught by else')
                     state = RequestJson['Switch_State']['value']
                     print(RequestJson['Switch_State']['value'])
                     print({"object": "switch", "value": state, "query": "cmd"})
                     jsonRequest = {"object": "switch", "value": state, "query": "cmd"}
             else:
+                print('is a query')
                 if 'value' in RequestJson['Sensor_Values'].keys():
                     if 'temperature' in RequestJson['Sensor_Values']['value']:
-                        #print('What is the current temperature?')
+                        print('What is the current temperature?')
                         print({"object": "temperature", "value": "temperature", "query": "?"})
                         jsonRequest = {"object": "temperature", "value": "temperature", "query": "?"}
                         # {"object":"humidity","query":"?"}
