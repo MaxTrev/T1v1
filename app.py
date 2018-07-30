@@ -51,8 +51,8 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
             if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values():
 
                 print('is a cmd')
-                state = RequestJson['Switch_State']['value']
-                print(RequestJson['Switch_State']['value'])
+                state = RequestJson['Switch_state']['value']
+                print(RequestJson['Switch_state']['value'])
                 print({"object": "switch", "value": state, "query": "cmd"})
                 jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
    #             if 'value' not in RequestJson['Switch_State'].keys():
