@@ -59,7 +59,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
                     print('caught by if')
                     if 'value' in RequestJson['scene'].keys():
                         print('defining a scene')
-                        scene = ['scene']['value']
+                        scene = RequestJson['scene']['value']
                         print({"object":"switch","value":scene,"query":"cmd"})
                         jsonRequest = {"object": "switch", "value": scene, "query": "cmd"}
                     else:
