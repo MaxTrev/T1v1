@@ -48,7 +48,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
             RequestJson = json.loads(alexaRequest)['request']['intent']['slots']
             print (RequestJson)
 
-            if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values():
+            if 'is' not in RequestJson['query'].values() and 'what' not in RequestJson['query'].values() and 'are' not in RequestJson['query'].values():
 
                 print('is a cmd')
    #             state = RequestJson['Switch_state']['value']
