@@ -55,7 +55,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
    #             print(RequestJson['Switch_state']['value'])
    #             print({"object": "switch", "value": state, "query": "cmd"})
    #             jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
-                if 'value' not in RequestJson['Switch_state'].keys():
+                if 'value' not in RequestJson['Switch_State'].keys():
                     print('caught by if')
                     value = RequestJson['Numbers']['value']
                     obj = RequestJson['tmp_scale']['value']
@@ -63,8 +63,8 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
                     jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
                 else:
                     print('caught by else')
-                    state = RequestJson['Switch_state']['value']
-                    print(RequestJson['Switch_state']['value'])
+                    state = RequestJson['Switch_State']['value']
+                    print(RequestJson['Switch_State']['value'])
                     print({"object": "switch", "value": state, "query": "cmd"})
                     jsonRequest = {"object": "switch", "value": state, "query": "cmd"}
             else:
