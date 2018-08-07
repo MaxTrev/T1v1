@@ -57,16 +57,17 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
    #             jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
                 if 'value' not in RequestJson['Switch_State'].keys():
                     print('caught by if')
-                        if 'value' in RequestJson['scene'].keys():
-                            print('defining a scene')
-                            scene = ['scene']['value']
-                            print({"object":"switch","value":scene,"query":"cmd"})
-                            jsonRequest = {"object": "switch", "value": scene, "query": "cmd"}
-                        else:
-                            value = RequestJson['Numbers']['value']
-                            obj = RequestJson['tmp_scale']['value']
-                            print({"object":obj,"value":value,"query":"cmd"})
-                            jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
+                    if 'value' in RequestJson['scene'].keys():
+                        print('defining a scene')
+                        scene = ['scene']['value']
+                        print({"object":"switch","value":scene,"query":"cmd"})
+                        jsonRequest = {"object": "switch", "value": scene, "query": "cmd"}
+                    else:
+                        print('dont think this is used')
+                        value = RequestJson['Numbers']['value']
+                        obj = RequestJson['tmp_scale']['value']
+                        print({"object":obj,"value":value,"query":"cmd"})
+                        jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
                 else:
                     print('caught by else')
                     state = RequestJson['Switch_State']['value']
